@@ -113,6 +113,8 @@ export default (function TrebleHookPublisherFactory() {
 
       }
 
+      TrebleHookPublisher.displayName = `TrebleHookPublisher<${topics ? topics.join(', ') : null}>`
+
       return TrebleHookPublisher
 
     },
