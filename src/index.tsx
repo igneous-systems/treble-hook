@@ -113,8 +113,6 @@ export default (function TrebleHookPublisherFactory() {
 
       }
 
-      TrebleHookPublisher.displayName = `TrebleHookPublisher<${topics ? topics.join(', ') : null}>`
-
       return TrebleHookPublisher
 
     },
@@ -202,7 +200,7 @@ function createPublishProvider<T>(
   initWithSessionStorage = false
 ) {
 
-  return (props: ProviderProps<PubSubTuple<T>>) => {
+  const TrebleHookProvider = (props: ProviderProps<PubSubTuple<T>>) => {
 
     const contextState = useState(defaultValue)
     const [stateValue] = contextState
@@ -234,6 +232,9 @@ function createPublishProvider<T>(
 
   }
 
+  TrebleHookProvider.displayName = `TrebleHookProvider<${topicName}>`
+
+  return TrebleHookProvider;
 }
 
 function getNoTopicErrorMessage(topicName: string) {
